@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Book Reviewer - Enter Author Details</title>
+  <link type="text/css" rel="stylesheet" href="/style.css">
+</head>
+<body>
+  <h1>Book Reviewer</h1>
+  
+
+    <div class="content-section">
+        <form method="POST" action="">
+            {{ form.hidden_tag() }}
+            <fieldset class="form-group">
+               <div class="form-group">
+     {{ form.author.label(class="form-control-label") }}
+     {% if form.author.errors %}
+       {{ form.author(class="form-control form-control-lg is-invalid") }}
+       <div class="invalid-feedback">
+         {% for error in form.author.errors%}
+             <span>{{error}}</span>
+         {% endfor %}
+       </div>
+   {% else %}
+       {{ form.author(class="form-control form-control-lg") }}
+   {% endif %}
+ </div>
+      <div class="form-group">
+         {{ form.numBooks.label(class="form-control-label") }}
+         {% if form.numBooks.errors %}
+           {{ form.numBooks(class="form-control form-control-lg is-invalid") }}
+           <div class="invalid-feedback">
+             {% for error in form.numBooks.errors%}
+                 <span>{{error}}</span>
+             {% endfor %}
+           </div>
+       {% else %}
+           {{ form.numBooks(class="form-control form-control-lg") }}
+       {% endif %}
+     </div>
+     <div class="form-group">
+         {{ form.sorting.label(class="form-control-label") }}
+         {% if form.sorting.errors %}
+           {{ form.sorting(class="form-control form-control-lg is-invalid") }}
+           <div class="invalid-feedback">
+             {% for error in form.sorting.errors%}
+                 <span>{{error}}</span>
+             {% endfor %}
+           </div>
+       {% else %}
+           {{ form.sorting(class="form-control form-control-lg") }}
+       {% endif %}
+     </div>
+     
+ </fieldset>
+            <div class="form-group">
+             {{ form.submit(class="btn btn-outline-info") }}
+          </div>
+         </form>
+     </div>
+ {% endblock content %}
+  
+  <div id="bookInfo"></div>
+  
+  </body>
+</html>
